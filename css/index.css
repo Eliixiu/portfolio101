@@ -1,0 +1,70 @@
+/* CSS具体的属性排序可以按照以下的规则：
+定位属性: position, float, z-index, clear
+盒模型相关属性: padding, margin, display, width, height, border
+字体相关
+CSS2 视觉相关属性 (background)
+CSS3 属性 (border-radius, box-shadow)
+详情请看 https://markdotto.com/2011/11/29/css-property-order/
+*/
+
+/* 先固定body的背景：
+1，background-image 插入背景图片；
+2，background-attachment:fixed 使背景图片不随页面的滚动而滚动；
+3，background-size:cover 使背景图片始终填满整个屏幕；
+4，background-position:center 使背景图片居中
+更多关于背景的知识：https://www.smashingmagazine.com/2009/09/backgrounds-in-css-everything-you-need-to-know/
+*/
+body {
+  background-image: url(../img/bg5.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+/* container是为页面上的所有内容添加了一个外包围框，目的是：
+  1，将内容居中；
+  2，围框里所有block元素的默认宽度是充满父容器的宽度，不需要个别为每个元素设置宽度；
+  3，之后支持响应式布局只需要调整外包围框的宽度即可改变内部所有元素的宽度，非常方便。
+    width: 960px; 设置外包围框的宽度。
+    margin: 0 auto; 让浏览器自动计算左右 margin，使外包围框居中。
+    这个居中技巧只限于有设置宽度的容器。
+    你常常会看到网页选择 960px 这个宽度，这是因为一般浏览器是 1024 宽，加上滚动条就是 1000-1004。960 给滚动条和其他浏览器 UI 预留了足够的空间。 并且 960 这个数字可以 2，3，4，5，6，8，10，12 等数字除尽，方便做网格。
+  */
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* main-header部分需要实现头像和H1居中，并将头像移出背景图一部分
+  1, display: block; 把行元素变成块元素
+  2, margin: 0 auto; 居中块元素 (元素一定要有 width 属性)
+  3, text-align: center; 通过容器来居中行元素
+      #使用 text-align 居中必须经过一个元素的父元素来居中，这会影响在这个容器里所有的元素。
+      在前面这个例子你可以看到不只是图片居中了, h1 和 p 里面的文字也被居中了.
+      如果你想要居中一个行元素（比如图片），但不影响同个容器里面的其他元素，那你可以选择把它设定为块元素来居中。
+  4, border-radius: 999px;把头像变成圆形
+  5, box-shadow: 0 0px 2px 1px rgba(0, 0, 0, 0.2);给头像加阴影
+  */
+.main-header {
+  background-image: url(../img/banner.jpg);
+  text-align: center;
+  margin-top: 100px;
+  padding: 1px; /* 禁止margin折叠 */
+}
+
+.main-header__avatar {
+  display: block;
+  margin: 0 auto;
+  margin-top: -70px;
+  border: 3px solid white;
+  border-radius: 999px;
+  box-shadow: 0 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.main-header h1 {
+  margin-bottom: 10px;
+  font-weight: 300;
+  font-size: 50px;
+  font-family: "Open Sans", "helvetica", arial, sans-serif;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+}
