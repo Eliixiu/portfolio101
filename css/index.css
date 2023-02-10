@@ -19,6 +19,19 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  font-family: "Open Sans", "helvetica", arial, sans-serif;
+  font-weight: 300;
+  color: #62686f;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #333;
+  font-weight: 300;
 }
 
 /* container是为页面上的所有内容添加了一个外包围框，目的是：
@@ -67,4 +80,114 @@ body {
   font-size: 50px;
   font-family: "Open Sans", "helvetica", arial, sans-serif;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+}
+
+/* nav部分实现导航条横布局且居中
+  实现原理：
+  list-style: none; 把列表装饰去掉
+  padding: 0; margin: 0; 把浏览器默认的间隔清除
+  li 默认是块元素。需要元素在同行显示的话记得把它们变成行元素:
+  display: inline
+
+
+*/
+.main-nav {
+  background-color: #333;
+}
+
+.main-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.main-nav ul li {
+  margin: 15px 10px;
+  display: inline-block; /*如果设置成inline，margin则无效，这是因为 inline 元素只能设置其左右内边距和外边距，而不能设置其高度和上下内外边距。
+  和垂直高度有关的 padding, margin, height都无效。这时可以使用 display: inline-block。inline-block 元素可以简单理解为对外表现为行元素，而对内表现为块元素。 */
+}
+
+.main-nav ul li a {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.main-nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* What I Do部分
+1, 标题下面没有用 hr 或其他元素来显示下划线,没有用 img 元素来显示这三个技能的图片
+和内容无关的装饰性设计元素应该通过 CSS 来实现。下面的练习我们会把图片和下划线加上去。
+
+2, 通常一个萝卜一个坑，每个元素在文档流会占据一定的空间，一个接着一个。但有时候有些元素不在文档流里面，比如：
+  定位的元素 （fixed 或者 absolute 定位）
+  CSS 背景图
+为了完整地显示这些不在文档流的东西，我们可以用 padding 在一个容器里预留空间。
+  background-image: url("whale-logo.png");
+  background-repeat: no-repeat; 禁止背景图重复
+  background-position: center top; 居中背景图
+  background-size: contain; 元素内部要有足够的空间完整地显示背景图
+  padding-left: 40px; 通常图片的的大小是固定的。左边预留的空间写死就可以了。
+*/
+
+.whatido {
+  background-color: #fff;
+  padding: 1;
+}
+
+.whatido header {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+
+.whatido header h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  display: inline-block; /*先将H2变成行内元素，再用：after实现后面的下划线*/
+}
+
+.whatido header h2:after {
+  content: "";
+  display: block;
+  border-top: 3px solid black;
+  margin-top: 20px;
+}
+
+.info-section__description {
+  font-style: italic;
+}
+
+.whatido__skill-list {
+  list-style: none;
+  padding: 0;
+  display: flex; /*将list横向排列*/
+  text-align: center;
+}
+
+.whatido__skill--code {
+  background-image: url(../img/skill-code.png);
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding: 120px 10px 0 10px; /*通过推高padding-top让背景图片和文字分开*/
+}
+
+.whatido__skill--design {
+  background-image: url(../img/skill-design.png);
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding: 120px 10px 0 10px;
+}
+
+.whatido__skill--product {
+  background-image: url(../img/skill-product.png);
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding: 120px 10px 0 10px;
 }
