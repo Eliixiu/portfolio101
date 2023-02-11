@@ -158,6 +158,9 @@ h6 {
   display: block;
   border-top: 3px solid black;
   margin-top: 20px;
+  width: 5rem; /*固定直线的长度是5，然后margin左右auto实现居中*/
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .info-section__description {
@@ -190,4 +193,195 @@ h6 {
   background-repeat: no-repeat;
   background-position: center top;
   padding: 120px 10px 0 10px;
+}
+
+/* education-experience部分 */
+
+.education-experience {
+  background-color: #fff;
+  padding: 1;
+}
+
+.education-experience header {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.education-experience header h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  display: inline-block; /*先将H2变成行内元素，再用：after实现后面的下划线*/
+}
+
+.education-experience header h2:after {
+  content: "";
+  display: block;
+  border-top: 3px solid black;
+  margin-top: 20px;
+  width: 5rem; /*固定直线的长度是5，然后margin左右auto实现居中*/
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.education-experience__list li {
+  display: flex;
+  margin: 50px 50px;
+  list-style: none;
+}
+
+.education-experience__list li img {
+  max-width: 100%; /*使用max-width: 100%将图像的最大宽度设置为它在父元素中的宽度百分比。使用height: auto确保图像的高度自动调整，以保持图像的纵横比。这意味着图像将随着父元素的宽度变化而自动缩小，并始终保持原始的纵横比。*/
+  width: 180px; /*设置图像宽度最多为180像素*/
+  height: auto;
+}
+
+.education-experience__list__description {
+  margin: 0 20px 0 50px; /*设置margin的顺序是上右下左*/
+}
+
+/* photos部分
+用grid实现图片部分说明：
+在上面的代码中，我们首先将.grid-container的display属性设置为grid，这样就告诉浏览器使用CSS Grid布局来显示这个列表。
+然后，我们使用grid-template-columns属性设置4列，每列的宽度都是1fr（即分数单位，相当于一个相等的分数）。
+我们使用grid-template-rows属性设置2行，每行的高度是自动的。最后，我们使用grid-gap属性设置每个元素之间的间距为10像素。
+*/
+
+.photos {
+  background-color: #fff;
+  padding: 1;
+}
+
+.photos header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.photos header h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  display: inline-block; /*先将H2变成行内元素，再用：after实现后面的下划线*/
+}
+
+.photos header h2:after {
+  content: "";
+  display: block;
+  border-top: 3px solid black;
+  margin-top: 20px;
+  width: 5rem; /*固定直线的长度是5，然后margin左右auto实现居中*/
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photos__list {
+  margin: 20px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 10px;
+}
+
+/* get-in-touch部分
+*/
+
+.get-in-touch {
+  background-color: #fff;
+  padding: 1;
+}
+
+.get-in-touch header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.get-in-touch header h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  display: inline-block; /*先将H2变成行内元素，再用：after实现后面的下划线*/
+}
+
+.get-in-touch header h2:after {
+  content: "";
+  display: block;
+  border-top: 3px solid black;
+  margin-top: 20px;
+  width: 5rem; /*固定直线的长度是5，然后margin左右auto实现居中*/
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.get-in-touch__list {
+  margin: 50px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  text-align: center;
+}
+
+/* contact部分
+*/
+
+.contact {
+  background-color: #fff;
+  padding: 1;
+}
+
+.contact header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact header h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  display: inline-block; /*先将H2变成行内元素，再用：after实现后面的下划线*/
+}
+
+.contact header h2:after {
+  content: "";
+  display: block;
+  border-top: 3px solid black;
+  margin-top: 20px;
+  width: 5rem; /*固定直线的长度是5，然后margin左右auto实现居中*/
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact input,
+.contact textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.contact label {
+  margin-bottom: 5px;
+}
+
+.contact button {
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 0;
+  background: #ffd524;
+
+  cursor: pointer;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  box-shadow: 0 3px 0 #daae1d;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0 20rem;
+  margin-bottom: 50px;
 }
