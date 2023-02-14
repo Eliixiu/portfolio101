@@ -48,6 +48,12 @@ h6 {
   margin: 0 auto;
 }
 
+@media only screen and (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+}
+
 /* main-header部分需要实现头像和H1居中，并将头像移出背景图一部分
   1, display: block; 把行元素变成块元素
   2, margin: 0 auto; 居中块元素 (元素一定要有 width 属性)
@@ -82,14 +88,18 @@ h6 {
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 }
 
+@media only screen and (max-width: 1024px) {
+  .main-header h1 {
+    font-size: 32px;
+  }
+}
+
 /* nav部分实现导航条横布局且居中
   实现原理：
   list-style: none; 把列表装饰去掉
   padding: 0; margin: 0; 把浏览器默认的间隔清除
   li 默认是块元素。需要元素在同行显示的话记得把它们变成行元素:
   display: inline
-
-
 */
 .main-nav {
   background-color: #333;
@@ -106,6 +116,13 @@ h6 {
   margin: 15px 10px;
   display: inline-block; /*如果设置成inline，margin则无效，这是因为 inline 元素只能设置其左右内边距和外边距，而不能设置其高度和上下内外边距。
   和垂直高度有关的 padding, margin, height都无效。这时可以使用 display: inline-block。inline-block 元素可以简单理解为对外表现为行元素，而对内表现为块元素。 */
+}
+
+@media only screen and (max-width: 1024px) {
+  .main-nav ul li {
+    margin: 0;
+    display: block;
+  }
 }
 
 .main-nav ul li a {
@@ -138,6 +155,20 @@ h6 {
 .whatido {
   background-color: #fff;
   padding: 1;
+}
+
+@media only screen and (max-width: 1024px) {
+  .whatido {
+    padding: 10px;
+  }
+
+  .whatido__skill {
+    margin-bottom: 40px;
+  }
+
+  .whatido__skill-list {
+    flex-direction: column;
+  }
 }
 
 .whatido header {
@@ -215,6 +246,12 @@ h6 {
   display: inline-block; /*先将H2变成行内元素，再用：after实现后面的下划线*/
 }
 
+@media only screen and (max-width: 1024px) {
+  .education-experience header h2 {
+    padding: 0 1rem;
+  }
+}
+
 .education-experience header h2:after {
   content: "";
   display: block;
@@ -241,13 +278,33 @@ h6 {
   margin: 0 20px 0 50px; /*设置margin的顺序是上右下左*/
 }
 
+@media only screen and (max-width: 1024px) {
+  .education-experience__list {
+    flex-direction: column;
+    padding-left: 0;
+  }
+
+  .education-experience__list li {
+    flex-direction: column;
+    text-align: left;
+    margin: 20px 100px;
+  }
+  .education-experience__list li img {
+    margin-left: auto;
+    margin-right: auto; /*让图片居中*/
+  }
+
+  .education-experience__list__description {
+    margin: 0;
+  }
+}
+
 /* photos部分
 用grid实现图片部分说明：
 在上面的代码中，我们首先将.grid-container的display属性设置为grid，这样就告诉浏览器使用CSS Grid布局来显示这个列表。
 然后，我们使用grid-template-columns属性设置4列，每列的宽度都是1fr（即分数单位，相当于一个相等的分数）。
 我们使用grid-template-rows属性设置2行，每行的高度是自动的。最后，我们使用grid-gap属性设置每个元素之间的间距为10像素。
 */
-
 .photos {
   background-color: #fff;
   padding: 1;
@@ -283,6 +340,14 @@ h6 {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, auto);
   grid-gap: 10px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .photos__list {
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center; /*图片垂直居中*/
+    justify-items: center; /*图片水平居中*/
+  }
 }
 
 /* get-in-touch部分
@@ -323,6 +388,14 @@ h6 {
   justify-content: center;
   gap: 3rem;
   text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .get-in-touch__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
 }
 
 /* contact部分
@@ -384,4 +457,10 @@ h6 {
   text-align: left;
   padding: 0 20rem;
   margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .contact form {
+    padding: 20px;
+  }
 }
